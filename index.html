@@ -1,0 +1,330 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Sunil - M.Tech (Research) student in Mechanical Engineering at the Indian Institute of Science, Bengaluru.">
+<style>body{margin:0}img{max-width:100%}[hidden]{display:none!important}:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}</style>
+</head>
+<body><title>Sunil Portfolio</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,400;1,500&family=Manrope:wght@300;400;500;600&display=swap">
+<style>
+/* Layout: monochrome editorial grid. Oversized name, grayscale portrait, hairline rules, a 3/9 label-content split per section; rows invert on hover */
+/* Deliberately single-theme: a dark, champagne-gold look in every viewer theme */
+:root {
+  --bg: #09090B;
+  --fg: #F3EFE7;
+  --muted: #A39D92;
+  --faint: #5F5A52;
+  --line: #22201D;
+  --panel: #141312;
+  --gold: #D6B77E;
+  --gold-hi: #F2DFB4;
+  --rule: rgba(214, 183, 126, 0.38);
+  --display: "Cormorant Garamond", "Garamond", "Times New Roman", serif;
+  --serif: "Cormorant Garamond", "Garamond", "Times New Roman", serif;
+  --body: "Manrope", "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+  color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+body {
+  background: var(--bg); color: var(--fg);
+  font-family: var(--body); font-size: 1rem; line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+}
+body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 10; background: var(--bg); }
+a { color: inherit; text-decoration: none; }
+a:focus-visible, button:focus-visible { outline: 1px solid var(--fg); outline-offset: 4px; }
+::selection { background: var(--gold); color: var(--bg); }
+
+/* atmospheric background: soft gold and steel glows, faint column lines, film grain */
+.bg { position: fixed; inset: 0; z-index: -1; pointer-events: none; overflow: hidden; }
+.bg .glow { position: absolute; border-radius: 50%; filter: blur(80px); will-change: transform; }
+.bg .g1 { width: 62vmax; height: 62vmax; right: -18vmax; top: -24vmax; background: radial-gradient(circle, rgba(214,183,126,.40), transparent 65%); animation: drift1 26s ease-in-out infinite alternate; }
+.bg .g2 { width: 52vmax; height: 52vmax; left: -22vmax; top: 30vh; background: radial-gradient(circle, rgba(120,138,168,.16), transparent 65%); animation: drift2 32s ease-in-out infinite alternate; }
+.bg .g3 { width: 40vmax; height: 40vmax; right: 10vw; bottom: -22vmax; background: radial-gradient(circle, rgba(214,183,126,.14), transparent 65%); animation: drift1 38s ease-in-out infinite alternate-reverse; }
+.bg::before {
+  content: ""; position: absolute; inset: 0;
+  background-image: linear-gradient(to right, rgba(243,239,231,.035) 1px, transparent 1px);
+  background-size: calc(100% / 6) 100%;
+  mask-image: linear-gradient(to bottom, #000 0%, transparent 85%); -webkit-mask-image: linear-gradient(to bottom, #000 0%, transparent 85%);
+}
+.bg::after {
+  content: ""; position: absolute; inset: -50%; opacity: .09;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='180' height='180'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 .9 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+}
+.bg .beam {
+  position: absolute; left: -30%; top: -20%; width: 160%; height: 70%;
+  background: linear-gradient(100deg, transparent 38%, rgba(242,223,180,.07) 47%, rgba(242,223,180,.12) 50%, rgba(242,223,180,.07) 53%, transparent 62%);
+  transform: rotate(-12deg); animation: sweep 22s ease-in-out infinite alternate;
+}
+.bg .ring { position: absolute; right: -14vmax; top: 6vh; width: 58vmax; height: 58vmax; border-radius: 50%; border: 1px solid rgba(214,183,126,.10); box-shadow: 0 0 0 7vmax rgba(214,183,126,.015), 0 0 0 14vmax rgba(214,183,126,.012); }
+@keyframes sweep { from { transform: rotate(-12deg) translateX(-12%); } to { transform: rotate(-12deg) translateX(12%); } }
+@keyframes drift1 { to { transform: translate(-8vw, 10vh) scale(1.12); } }
+@keyframes drift2 { to { transform: translate(10vw, -8vh) scale(1.08); } }
+
+.wrap { max-width: 1180px; margin: 0 auto; }
+
+/* nav */
+nav.top {
+  position: sticky; top: env(safe-area-inset-top, 0px); z-index: 5;
+  background: color-mix(in srgb, var(--bg) 88%, transparent);
+  backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+  display: flex; justify-content: space-between; align-items: center; gap: 12px 24px; flex-wrap: wrap;
+  padding-block: 20px; border-bottom: 1px solid var(--line);
+}
+nav.top .mark { font-family: var(--display); font-weight: 500; font-size: 0.95rem; letter-spacing: -0.01em; }
+nav.top .mark span { font-family: var(--serif); font-style: italic; font-weight: 400; font-size: 1.1rem; }
+nav.top ul { list-style: none; display: flex; gap: 28px; margin: 0; padding: 0; flex-wrap: wrap; }
+nav.top ul a { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.12em; color: var(--muted); transition: color .2s; }
+nav.top ul a:hover { color: var(--fg); }
+
+/* hero */
+.hero { display: grid; grid-template-columns: 1.55fr 1fr; gap: 48px; padding-block: 72px 64px; align-items: end; }
+.hero-text { min-width: 0; display: grid; gap: 28px; }
+.kicker { font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.16em; color: var(--muted); display: flex; align-items: center; gap: 14px; }
+.kicker::before { content: ""; width: 36px; border-top: 1px solid var(--rule); }
+h1 {
+  font-family: var(--display); font-weight: 300; margin: 0;
+  font-size: clamp(4rem, 12vw, 10rem); line-height: 0.86; letter-spacing: -0.03em;
+}
+h1 em {
+  font-family: var(--serif); font-style: italic; font-weight: 400; letter-spacing: -0.02em;
+  background: linear-gradient(100deg, var(--gold) 0%, var(--gold-hi) 45%, var(--gold) 70%, #A8884F 100%);
+  -webkit-background-clip: text; background-clip: text; color: transparent;
+  padding-right: .08em;
+}
+.lede { font-family: var(--display); font-weight: 300; font-size: clamp(1.2rem, 2.2vw, 1.55rem); line-height: 1.4; letter-spacing: -0.01em; max-width: 30em; margin: 0; color: var(--muted); }
+.lede strong { color: var(--fg); font-weight: 400; }
+
+.portrait {
+  margin: 0; position: relative; aspect-ratio: 4 / 5; max-width: 100%; width: 100%;
+  background: linear-gradient(160deg, #1A1815, var(--panel) 60%); overflow: hidden;
+  outline: 1px solid var(--rule); outline-offset: 12px;
+  display: grid; place-items: center;
+}
+.portrait img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 40%; display: block; transition: filter .6s, transform .8s; }
+.portrait::after { content: ""; position: absolute; inset: 0; pointer-events: none; background: linear-gradient(to bottom, transparent 62%, rgba(9,9,11,.8)); box-shadow: inset 0 0 0 1px rgba(214,183,126,.18); }
+.portrait:hover img { filter: brightness(1.08) sepia(.15); }
+.portrait figcaption { z-index: 1; color: var(--gold); }
+.portrait:hover img { transform: scale(1.03); }
+.portrait .ph { font-family: var(--serif); font-style: italic; font-size: clamp(4rem, 9vw, 7rem); color: var(--faint); }
+.portrait figcaption {
+  position: absolute; left: 0; right: 0; bottom: 0; padding: 14px 16px;
+  display: flex; justify-content: space-between; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.14em;
+  color: var(--muted);
+}
+
+.facts { display: grid; grid-template-columns: repeat(3, 1fr); border-top: 1px solid var(--rule); }
+.facts div { padding: 18px 0; min-width: 0; }
+.facts div + div { padding-left: 20px; border-left: 1px solid var(--line); }
+.facts small { display: block; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.14em; color: var(--muted); margin-bottom: 4px; }
+.facts span { font-family: var(--display); font-size: 1rem; }
+
+/* sections */
+section { display: grid; grid-template-columns: 3fr 9fr; gap: 32px; padding-block: 88px; border-top: 1px solid var(--line); }
+section > * { min-width: 0; }
+.label { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.16em; color: var(--muted); position: sticky; top: 96px; align-self: start; display: flex; gap: 12px; }
+.label b { color: var(--gold); font-weight: 500; font-variant-numeric: tabular-nums; }
+h2 { font-family: var(--display); font-weight: 300; font-size: clamp(2.4rem, 5vw, 4rem); line-height: 1.02; letter-spacing: -0.015em; margin: 0 0 32px; text-wrap: balance; }
+h2 em { font-family: var(--serif); font-style: italic; font-weight: 400; color: var(--gold); }
+p { margin: 0 0 1.1em; max-width: 62ch; color: var(--muted); }
+p strong { color: var(--fg); font-weight: 500; }
+
+.cols { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; }
+.interests { list-style: none; padding: 0; margin: 28px 0 0; display: flex; flex-wrap: wrap; gap: 8px; }
+.interests li { font-size: 0.8rem; border: 1px solid var(--line); border-radius: 999px; padding: 6px 14px; }
+
+/* list rows that invert on hover */
+.rows { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--rule); }
+.rows li { border-bottom: 1px solid var(--line); }
+.rows .r {
+  display: grid; grid-template-columns: 3.5rem 1fr auto; gap: 20px; align-items: baseline;
+  padding: 26px 12px; transition: background .35s, color .35s;
+}
+.rows .r:hover { background: linear-gradient(90deg, rgba(214,183,126,.10), rgba(214,183,126,0)); }
+.rows .r:hover .t, .rows .r:hover .n { color: var(--gold); }
+.rows .t { transition: color .35s; }
+.rows .n { font-size: 0.78rem; color: var(--muted); font-variant-numeric: tabular-nums; }
+.rows .t { font-family: var(--display); font-weight: 400; font-size: clamp(1.2rem, 2.2vw, 1.6rem); letter-spacing: -0.02em; line-height: 1.25; display: block; }
+.rows .sub { display: block; color: var(--muted); font-size: 0.93rem; margin-top: 6px; max-width: 60ch; transition: color .35s; }
+.rows .meta { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.12em; color: var(--muted); white-space: nowrap; transition: color .35s; }
+.rows .sub b { font-weight: 500; }
+
+/* timeline table */
+.cv { width: 100%; border-collapse: collapse; border-top: 1px solid var(--rule); }
+.cv td { padding: 22px 0; border-bottom: 1px solid var(--line); vertical-align: baseline; }
+.cv td.y { width: 9.5rem; font-size: 0.8rem; color: var(--muted); font-variant-numeric: tabular-nums; padding-right: 20px; }
+.cv td b { font-family: var(--display); font-weight: 400; font-size: 1.15rem; letter-spacing: -0.01em; display: block; }
+.cv td span { color: var(--muted); font-size: 0.93rem; }
+
+/* contact */
+.contact h2 { font-size: clamp(2.6rem, 7vw, 5.6rem); line-height: 0.95; }
+.mailrow { display: flex; flex-wrap: wrap; align-items: center; gap: 16px; padding-block: 24px; border-top: 1px solid var(--rule); border-bottom: 1px solid var(--line); }
+.mailrow code { font-family: var(--display); font-size: clamp(1.2rem, 3vw, 1.8rem); font-weight: 300; letter-spacing: -0.02em; user-select: all; overflow-wrap: anywhere; flex: 1 1 260px; min-width: 0; }
+button.copy {
+  font-family: var(--body); font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.14em;
+  background: linear-gradient(100deg, var(--gold), var(--gold-hi)); color: #141009; border: 1px solid var(--gold); padding: 14px 24px; cursor: pointer; font-weight: 600;
+  transition: filter .25s, transform .25s;
+}
+button.copy:hover { filter: brightness(1.08); transform: translateY(-1px); }
+.links { display: flex; flex-wrap: wrap; gap: 12px 36px; margin-top: 28px; }
+.links a { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.14em; border-bottom: 1px solid var(--faint); padding-bottom: 3px; transition: border-color .2s; }
+.links a:hover { border-color: var(--fg); }
+
+footer { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8px; padding-block: 28px 40px; border-top: 1px solid var(--line); font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.14em; color: var(--muted); }
+
+/* one load moment */
+@keyframes rise { from { transform: translateY(24px); opacity: .001; } to { transform: none; opacity: 1; } }
+h1, .lede, .portrait { animation: rise .9s cubic-bezier(.2,.7,.2,1) both; }
+.lede { animation-delay: .12s; }
+.portrait { animation-delay: .2s; }
+
+@media (max-width: 860px) {
+  .hero { grid-template-columns: 1fr; padding-block: 40px 48px; gap: 36px; }
+  .portrait { max-width: 360px; }
+  section { grid-template-columns: 1fr; gap: 20px; padding-block: 60px; }
+  .label { position: static; }
+  .cols { grid-template-columns: 1fr; gap: 0; }
+}
+@media (max-width: 560px) {
+  nav.top ul { gap: 16px; }
+  .facts { grid-template-columns: 1fr; }
+  .facts div + div { padding-left: 0; border-left: 0; border-top: 1px solid var(--line); }
+  .rows .r { grid-template-columns: 2.2rem 1fr; padding: 22px 4px; }
+  .rows .meta { grid-column: 2; }
+  .cv td.y { width: 6.5rem; }
+}
+@media (prefers-reduced-motion: reduce) {
+  h1, .lede, .portrait, .bg .glow, .bg .beam { animation: none; }
+  .rows .r, .portrait img { transition: none; }
+}
+</style>
+
+<div class="bg" aria-hidden="true"><span class="glow g1"></span><span class="glow g2"></span><span class="glow g3"></span><span class="beam"></span><span class="ring"></span></div>
+<div class="wrap">
+  <nav class="top" aria-label="Sections">
+    <a class="mark" href="#top">Sunil <span>— IISc Bengaluru</span></a>
+    <ul>
+      <li><a href="#about">About</a></li>
+      <li><a href="#work">Work</a></li>
+      <li><a href="#publications">Papers</a></li>
+      <li><a href="#experience">CV</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <header class="hero" id="top">
+    <div class="hero-text">
+      <span class="kicker">M.Tech (Research) · Mechanical Engineering</span>
+      <h1><em>Sunil</em></h1>
+      <p class="lede">Research student in <strong>Mechanical Engineering</strong> at the <strong>Indian Institute of Science</strong>, Bengaluru. I like understanding how things are designed, how they behave under load, and how to make them better.</p>
+      <div class="facts">
+        <div><small>Programme</small><span>M.Tech (Research)</span></div>
+        <div><small>Department</small><span>Mechanical Engineering</span></div>
+        <div><small>Institute</small><span>IISc Bengaluru</span></div>
+      </div>
+    </div>
+    <figure class="portrait" id="portrait">
+      <img src="portrait-studio.jpg" alt="Portrait of Sunil in a black suit" width="1152" height="1440">
+      <figcaption><span>Portrait</span><span>2026</span></figcaption>
+    </figure>
+  </header>
+
+  <section id="about">
+    <div class="label"><b>01</b> About</div>
+    <div>
+      <h2>Engineering, <em>from first principles.</em></h2>
+      <div class="cols">
+        <p>I'm <strong>Sunil</strong>, an M.Tech (Research) student in the <strong>Department of Mechanical Engineering at the Indian Institute of Science</strong>, Bengaluru. My work combines theory, simulation and experiments to solve real engineering problems.</p>
+        <p>I enjoy working on hard problems carefully and from the ground up. I'm always open to research collaborations and to discussions about mechanical systems, design and manufacturing.</p>
+      </div>
+      <ul class="interests" aria-label="Research interests">
+        <li>Mechanical design</li>
+        <li>Simulation &amp; FEA</li>
+        <li>Thermal &amp; fluid systems</li>
+        <li>Manufacturing</li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="work">
+    <div class="label"><b>02</b> Selected work</div>
+    <div>
+      <h2>Projects</h2>
+      <ul class="rows">
+        <li><div class="r"><span class="n">01</span><div><span class="t">M.Tech (Research) thesis</span><span class="sub">My ongoing research in the Department of Mechanical Engineering at IISc. Details coming soon.</span></div><span class="meta">In progress</span></div></li>
+        <li><div class="r"><span class="n">02</span><div><span class="t">Mechanical design project</span><span class="sub">CAD modelling, analysis and prototyping of a mechanical component.</span></div><span class="meta">CAD · FEA</span></div></li>
+        <li><div class="r"><span class="n">03</span><div><span class="t">Simulation study</span><span class="sub">Finite element and flow simulations, validated against hand calculations and test data.</span></div><span class="meta">Simulation</span></div></li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="publications">
+    <div class="label"><b>03</b> Publications</div>
+    <div>
+      <h2>Research <em>output</em></h2>
+      <ul class="rows">
+        <li><div class="r"><span class="n">Now</span><div><span class="t">Publications in preparation</span><span class="sub"><b>Sunil</b> · Department of Mechanical Engineering, IISc</span></div><span class="meta">Coming soon</span></div></li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="experience">
+    <div class="label"><b>04</b> Curriculum vitae</div>
+    <div>
+      <h2>Experience &amp; <em>education</em></h2>
+      <div style="overflow-x:auto">
+        <table class="cv">
+          <tr><td class="y">Now</td><td><b>M.Tech (Research), Mechanical Engineering</b><span>Indian Institute of Science, Bengaluru</span></td></tr>
+          <tr><td class="y">Earlier</td><td><b>Undergraduate degree</b><span>Your college · Your degree</span></td></tr>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="contact">
+    <div class="label"><b>05</b> Contact</div>
+    <div>
+      <h2>Let's work<br><em>together.</em></h2>
+      <p>Open to research collaborations, internships and conversations about mechanical engineering.</p>
+      <div class="mailrow">
+        <code id="email">sainisunil21923@gmail.com</code>
+        <button class="copy" id="copy-email" type="button" data-target="email" data-label="Copy email">Copy email</button>
+      </div>
+      <div class="mailrow" style="border-top-color: var(--line)">
+        <code id="phone">+91 74278 82027</code>
+        <button class="copy" id="copy-phone" type="button" data-target="phone" data-label="Copy number">Copy number</button>
+      </div>
+      <div class="links">
+        <a href="https://scholar.google.com/" target="_blank" rel="noopener">Google Scholar ↗</a>
+        <a href="https://github.com/" target="_blank" rel="noopener">GitHub ↗</a>
+        <a href="https://www.linkedin.com/" target="_blank" rel="noopener">LinkedIn ↗</a>
+      </div>
+    </div>
+  </section>
+
+  <footer><span>© 2026 Sunil · IISc Bengaluru</span><span>Updated November 2026</span></footer>
+</div>
+
+<script>
+  document.querySelectorAll('button.copy').forEach((btn) => btn.addEventListener('click', () => {
+    const el = document.getElementById(btn.dataset.target);
+    const done = () => { btn.textContent = 'Copied'; setTimeout(() => btn.textContent = btn.dataset.label, 1600); };
+    const fallback = () => {
+      const r = document.createRange(); r.selectNodeContents(el);
+      const s = getSelection(); s.removeAllRanges(); s.addRange(r);
+      btn.textContent = 'Press Ctrl+C';
+    };
+    try { navigator.clipboard.writeText(el.textContent.trim()).then(done, fallback); } catch (e) { fallback(); }
+  }));
+</script>
+
+</body>
+</html>
